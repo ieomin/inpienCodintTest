@@ -23,6 +23,43 @@ public class DbConnector {
     private static final String PASSWORD = "inspien01";
     private static final String TABLENAME = "INSPIEN_XMLDATA_INFO";
 
+//    public static List<InspienXmldataInfo> getList(String xmlString) {
+//        List<InspienXmldataInfo> list = new ArrayList<>();
+//        try {
+//            InputSource is = new InputSource(new StringReader(xmlString));
+//            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is); doc.getDocumentElement().normalize();
+//            NodeList headerList = doc.getElementsByTagName("HEADER");
+//            NodeList detailList = doc.getElementsByTagName("DETAIL");
+//            for (int i = 0; i < headerList.getLength(); i++) {
+//                Element header = (Element) headerList.item(i);
+//                for (int j = 0; j < detailList.getLength(); j++) {
+//                    Element detail = (Element) detailList.item(j);
+//                    if (header.getElementsByTagName("ORDER_NUM").item(0).getTextContent().equals(detail.getElementsByTagName("ORDER_NUM").item(0).getTextContent())) {
+//                        InspienXmldataInfo info = new InspienXmldataInfo();
+//                        info.setOrderNum(header.getElementsByTagName("ORDER_NUM").item(0).getTextContent());
+//                        info.setOrderId(header.getElementsByTagName("ORDER_ID").item(0).getTextContent());
+//                        info.setOrderDate(header.getElementsByTagName("ORDER_DATE").item(0).getTextContent());
+//                        info.setOrderPrice(Integer.parseInt(header.getElementsByTagName("ORDER_PRICE").item(0).getTextContent()));
+//                        info.setOrderQty(Integer.parseInt(header.getElementsByTagName("ORDER_QTY").item(0).getTextContent()));
+//                        info.setReceiverName(header.getElementsByTagName("RECEIVER_NAME").item(0).getTextContent());
+//                        info.setReceiverNo(header.getElementsByTagName("RECEIVER_NO").item(0).getTextContent());
+//                        info.setEtaDate(header.getElementsByTagName("ETA_DATE").item(0).getTextContent());
+//                        info.setDestination(header.getElementsByTagName("DESTINATION").item(0).getTextContent());
+//                        info.setDescription(header.getElementsByTagName("DESCIPTION").item(0).getTextContent());
+//                        info.setItemSeq(Integer.parseInt(detail.getElementsByTagName("ITEM_SEQ").item(0).getTextContent()));
+//                        info.setItemName(detail.getElementsByTagName("ITEM_NAME").item(0).getTextContent());
+//                        info.setItemQty(Integer.parseInt(detail.getElementsByTagName("ITEM_QTY").item(0).getTextContent()));
+//                        info.setItemColor(detail.getElementsByTagName("ITEM_COLOR").item(0).getTextContent());
+//                        info.setItemPrice(Integer.parseInt(detail.getElementsByTagName("ITEM_PRICE").item(0).getTextContent()));
+//                        list.add(info);
+//                    }
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return list;
+//    }
 
     public static List<InspienXmldataInfo> getList(String xmlString) {
         List<InspienXmldataInfo> list = new ArrayList<>();
@@ -36,24 +73,25 @@ public class DbConnector {
                 for (int j = 0; j < detailList.getLength(); j++) {
                     Element detail = (Element) detailList.item(j);
                     if (header.getElementsByTagName("ORDER_NUM").item(0).getTextContent().equals(detail.getElementsByTagName("ORDER_NUM").item(0).getTextContent())) {
-                        InspienXmldataInfo info = new InspienXmldataInfo();
-                        info.setOrderNum(header.getElementsByTagName("ORDER_NUM").item(0).getTextContent());
-                        info.setOrderId(header.getElementsByTagName("ORDER_ID").item(0).getTextContent());
-                        info.setOrderDate(header.getElementsByTagName("ORDER_DATE").item(0).getTextContent());
-                        info.setOrderPrice(Integer.parseInt(header.getElementsByTagName("ORDER_PRICE").item(0).getTextContent()));
-                        info.setOrderQty(Integer.parseInt(header.getElementsByTagName("ORDER_QTY").item(0).getTextContent()));
-                        info.setReceiverName(header.getElementsByTagName("RECEIVER_NAME").item(0).getTextContent());
-                        info.setReceiverNo(header.getElementsByTagName("RECEIVER_NO").item(0).getTextContent());
-                        info.setEtaDate(header.getElementsByTagName("ETA_DATE").item(0).getTextContent());
-                        info.setDestination(header.getElementsByTagName("DESTINATION").item(0).getTextContent());
-                        info.setDescription(header.getElementsByTagName("DESCIPTION").item(0).getTextContent());
-                        info.setItemSeq(Integer.parseInt(detail.getElementsByTagName("ITEM_SEQ").item(0).getTextContent()));
-                        info.setItemName(detail.getElementsByTagName("ITEM_NAME").item(0).getTextContent());
-                        info.setItemQty(Integer.parseInt(detail.getElementsByTagName("ITEM_QTY").item(0).getTextContent()));
-                        info.setItemColor(detail.getElementsByTagName("ITEM_COLOR").item(0).getTextContent());
-                        info.setItemPrice(Integer.parseInt(detail.getElementsByTagName("ITEM_PRICE").item(0).getTextContent()));
-                        list.add(info);
+                        InspienXmldataInfo inspienXmldataInfo = new InspienXmldataInfo();
+                        inspienXmldataInfo.setOrderNum(header.getElementsByTagName("ORDER_NUM").item(0).getTextContent());
+                        inspienXmldataInfo.setOrderId(header.getElementsByTagName("ORDER_ID").item(0).getTextContent());
+                        inspienXmldataInfo.setOrderDate(header.getElementsByTagName("ORDER_DATE").item(0).getTextContent());
+                        inspienXmldataInfo.setOrderPrice(Integer.parseInt(header.getElementsByTagName("ORDER_PRICE").item(0).getTextContent()));
+                        inspienXmldataInfo.setOrderQty(Integer.parseInt(header.getElementsByTagName("ORDER_QTY").item(0).getTextContent()));
+                        inspienXmldataInfo.setReceiverName(header.getElementsByTagName("RECEIVER_NAME").item(0).getTextContent());
+                        inspienXmldataInfo.setReceiverNo(header.getElementsByTagName("RECEIVER_NO").item(0).getTextContent());
+                        inspienXmldataInfo.setEtaDate(header.getElementsByTagName("ETA_DATE").item(0).getTextContent());
+                        inspienXmldataInfo.setDestination(header.getElementsByTagName("DESTINATION").item(0).getTextContent());
+                        inspienXmldataInfo.setDescription(header.getElementsByTagName("DESCIPTION").item(0).getTextContent());
+                        inspienXmldataInfo.setItemSeq(Integer.parseInt(detail.getElementsByTagName("ITEM_SEQ").item(0).getTextContent()));
+                        inspienXmldataInfo.setItemName(detail.getElementsByTagName("ITEM_NAME").item(0).getTextContent());
+                        inspienXmldataInfo.setItemQty(Integer.parseInt(detail.getElementsByTagName("ITEM_QTY").item(0).getTextContent()));
+                        inspienXmldataInfo.setItemColor(detail.getElementsByTagName("ITEM_COLOR").item(0).getTextContent());
+                        inspienXmldataInfo.setItemPrice(Integer.parseInt(detail.getElementsByTagName("ITEM_PRICE").item(0).getTextContent()));
+                        list.add(inspienXmldataInfo);
                     }
+
                 }
             }
         } catch (Exception e) {
