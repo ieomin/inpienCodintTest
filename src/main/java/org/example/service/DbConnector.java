@@ -21,7 +21,7 @@ public class DbConnector {
     private static final String SID = "POS";
     private static final String USER = "inspien01";
     private static final String PASSWORD = "inspien01";
-    private static final String TABLENAME = "INSPIEN_XMLDATA_INFO_01";
+    private static final String TABLENAME = "INSPIEN_XMLDATA_INFO";
 
 
     public static List<InspienXmldataInfo> getList(String xmlString) {
