@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Json 관련
+    implementation 'org.json:json:20210307'
+
+    // oracleConnection 관련
+    implementation 'com.oracle.database.jdbc:ojdbc11:21.3.0.0'
+
+    // FtpConnect 관련
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
+
+    // FtpClient 관련
+    implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
+
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
