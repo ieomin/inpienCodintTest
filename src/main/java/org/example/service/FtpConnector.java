@@ -70,9 +70,7 @@ public class FtpConnector {
     }
 
     public static void insert(String fileName) throws IOException {
-        URL url = new URL("ftp://" + USER + ":" + PASSWORD + "@" + HOST + ":" + Integer.parseInt(PORT) + FILE_PATH + "/" + fileName);
-        URLConnection conn = url.openConnection();
-        OutputStream outputStream = conn.getOutputStream();
+        OutputStream outputStream = new URL("ftp://" + USER + ":" + PASSWORD + "@" + HOST + ":" + Integer.parseInt(PORT) + FILE_PATH + "/" + fileName).openConnection().getOutputStream();
         FileInputStream inputStream = new FileInputStream(fileName);
         byte[] buffer = new byte[4096];
         int bytesRead;
